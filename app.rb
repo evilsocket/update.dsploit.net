@@ -17,12 +17,16 @@ class UpdateServer < Sinatra::Base
   end
 
   get '/changelog' do
-    open( "#{File.dirname(__FILE__)}/files/changelog_#{version}.html" )
+    static "changelog_#{version}.html"
   end 
 
   private
 
+  def static(name)
+    open( "#{File.dirname(__FILE__)}/files/#{name}" ).read
+  end
+
   def version
-    open( "#{File.dirname(__FILE__)}/files/current.version" ).read
+    static 'current.version'
   end
 end
