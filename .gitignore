@@ -1,0 +1,14 @@
+*.rbc
+*.rdb
+*.sql
+*.swp
+*.swo
+.*.swn
+*~
+.bundle
+vendor/
+tmp/
+tags
+.DS_Store
+*/.DS_Store
+.c9revisions
