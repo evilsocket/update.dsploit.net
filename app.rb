@@ -33,7 +33,7 @@ class UpdateServer < Sinatra::Base
   private
 
   def static(name)
-    open( "#{settings.public_dir}/files/#{name}" ).read.strip
+    open( File.join( settings.public_dir, name ) ).read.strip
   end
 
   def version( nightly = false )
