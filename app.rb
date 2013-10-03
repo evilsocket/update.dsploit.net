@@ -8,12 +8,20 @@ class UpdateServer < Sinatra::Base
   set :static, true
   set :public_dir, File.dirname(__FILE__) + '/files'
 
+  get '/' do
+      redirect "http://www.dsploit.net/"
+  end
+
   get '/version' do
     version
   end
 
   get '/apk' do
-    redirect "http://#{request.host}/dSploit-#{version}.apk"
+    redirect "http://#{request.host}/stable/dSploit-#{version}.apk"
+  end
+
+  get '/nightly' do
+      redirect "http://#{request.host}/nightly/dSploit-#{version(true)}.apk"
   end
 
   get '/changelog' do
@@ -26,7 +34,7 @@ class UpdateServer < Sinatra::Base
     open( "#{File.dirname(__FILE__)}/files/#{name}" ).read
   end
 
-  def version
-    static 'current.version'
+  def version( nightly = false )
+    static nightly ? 'nightly.version' : 'current.version'
   end
 end
