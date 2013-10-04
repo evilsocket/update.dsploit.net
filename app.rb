@@ -17,13 +17,11 @@ class UpdateServer < Sinatra::Base
   end
 
   get '/apk' do
-    filename = "dSploit-#{version}.apk"
-    send_file File.join( settings.public_dir, 'stable', filename ), :filename => filename
+    redirect "http://update.dsploit.net/stable/dSploit-#{version}.apk"
   end
 
   get '/nightly' do
-    filename = "dSploit-#{version(true)}.apk"
-    send_file File.join( settings.public_dir, 'nightly', filename ), :filename => filename
+    redirect "http://update.dsploit.net/nightly/dSploit-#{version(true)}.apk"
   end
 
   get '/changelog' do
