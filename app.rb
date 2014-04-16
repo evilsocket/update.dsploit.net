@@ -21,7 +21,8 @@ class UpdateServer < Sinatra::Base
   end
 
   get '/nightly' do
-    redirect "http://update.dsploit.net/nightly/dSploit-#{version(true)}.apk"
+    redirect "http://rootbitch.cc/dsploit/dSploit-lastest.apk"
+    #redirect "http://update.dsploit.net/nightly/dSploit-#{version(true)}.apk"
   end
 
   get '/changelog' do
